@@ -1,0 +1,43 @@
+@media (max-width: 1930px) {
+    .pages__links > a {
+        margin-left: 27px;
+    }
+    footer {
+        padding-top: 200px;
+        height: 800px;
+        margin-top: -1px;
+    }
+    main > section.introduction {
+        height: 860px;
+        padding-top: 225px;
+    }
+    main > section.preinfo {
+        height: 255px;
+    }
+    main > section.about {
+        height: 1000px;
+    }
+    main > section.location {
+        height: 1003px;
+    }
+    main > section.service {
+        height: 2000px;
+    }
+    .service-card__item {
+        width: 345px;
+        height: 360px;
+    }
+    .service-card__item > div {
+        border-left: 1px solid rgba(171, 10, 20, 0.33);
+        width: 260px;
+        height: 60px;
+        padding-left: 16px;
+        margin-top: 22px;
+        display: flex;
+        place-items: start;
+        align-items: center;
+    }
+    .addresses__addr:not(:first-child) {
+        margin-top: 75px;
+    }
+}

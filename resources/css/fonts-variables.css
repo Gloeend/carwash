@@ -1,0 +1,65 @@
+
+/* Через <head>  (Добавить <link rel="preconnect" href="https://fonts.gstatic.com"> )*/
+    /* Montserrat */
+    /*<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">*/
+    /* Inter */
+    /*<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap" rel="stylesheet">*/
+
+/* Через импорт */
+    /* Montserrat */
+    /* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap'); */
+    /* Inter */
+    /* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap'); */
+.montserrat-text {
+    font-family: Montserrat, sans-serif;
+}
+.inter-text {
+    font-family: Inter, sans-serif;
+}
+
+.fw-regular {
+    font-weight: normal;
+}
+.fw-medium {
+    font-weight: 500;
+}
+.fw-semi-bold {
+    font-weight: 600;
+}
+.fw-bold {
+    font-weight: 700;
+}
+.fw-extra-bold {
+    font-weight: 800;
+}
+
+.fz-12 {
+    font-size: 12px;
+}
+.fz-14 {
+    font-size: 14px;
+}
+.fz-18 {
+    font-size: 18px;
+}
+.fz-20 {
+    font-size: 20px;
+}
+.fz-22 {
+    font-size: 22px;
+}
+.fz-24 {
+    font-size: 24px;
+}
+.fz-33 {
+    font-size: 33px;
+}
+.fz-36 {
+    font-size: 36px;
+}
+.fz-48 {
+    font-size: 48px;
+}
+.fz-52 {
+    font-size: 52px;
+}

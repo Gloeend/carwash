@@ -1,0 +1,279 @@
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+a:hover {
+    text-decoration: none;
+}
+.header__top-bar-wrapper {
+    background-color: #191919;
+    height: 50px;
+}
+.footer__navigation a {
+    color: white;
+}
+.logotype {
+    width: 48px;
+    height: 48px;
+    border-radius: 50px;
+    background-color: #C4C4C4;
+}
+.header__navigation-wrapper {
+    background-color: #A30000;
+    height: 65px;
+}
+header, .header a, footer  {
+    color: white;
+}
+.introduction {
+    background-image: url("../media/img/main/car-big-img.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.footer {
+    background-color: #191919;
+}
+.button {
+    width: 280px;
+    height: 60px;
+    border-radius: 5px;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+}
+.button:focus {
+    outline: none;
+}
+.button-red {
+    color: #F9F9F9;
+    background: #AB0A14;
+}
+.preinfo {
+    background-color: #191919;
+}
+main > section.services {
+    border-bottom: 81px solid #AB0A14;
+}
+main > section.location {
+    border-bottom: 81px solid #AB0A14;
+}
+.services__image-text {
+
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+#first.services__image-text {
+    width: 380px;
+    height: 400px;
+    background-image: url("../media/img/main/services/first.png");
+}
+#second.services__image-text > .image-text__wrapper, #fourth.services__image-text > .image-text__wrapper {
+    margin-top: 300px;
+}
+#second.services__image-text {
+    width: 640px;
+    height: 400px;
+    background-image: url("../media/img/main/services/second.png");
+}
+#third.services__image-text {
+    width: 445px;
+    height: 400px;
+    background-image: url("../media/img/main/services/third.png");
+}
+#fourth.services__image-text {
+    width: 375px;
+    height: 400px;
+    background-image: url("../media/img/main/services/fourth.png");
+}
+#fifth.services__image-text {
+    width: 380px;
+    height: 425px;
+    background-image: url("../media/img/main/services/fifth.png");
+}
+#sixth.services__image-text {
+    width: 320px;
+    height: 425px;
+    background-image: url("../media/img/main/services/sixth.png");
+}
+#seventh.services__image-text {
+    width: 760px;
+    height: 425px;
+    background-image: url("../media/img/main/services/seventh.png");
+}
+#fifth.services__image-text > .image-text__wrapper,
+#seventh.services__image-text > .image-text__wrapper,
+#eighth.services__image-text > .image-text__wrapper {
+    margin-top: 300px;
+}
+#eighth.services__image-text {
+    width: 371px;
+    height: 425px;
+    background-image: url("../media/img/main/services/eighth.png");
+}
+.image-text__wrapper {
+    padding-top: 5px;
+    width: 75%;
+    height: 68px;
+    background-color: #AB0A14;
+}
+.location__contacts {
+    color: #545454;
+}
+.service__text > h5 {
+    color: #3D3D3D;
+}
+.service__text > h5 > b {
+    color: #606060;
+}
+.service__text > p {
+    color: #404040;
+}
+.service-card__item {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}
+.service-card__item > div > a {
+    color: #3D3D3D;
+}
+.about__wrapper {
+    background-color: #191919;
+    color: white;
+    height: 1000px;
+}
+.contacts__addresses > div {
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.addresses__addr  > div > p:first-child {
+    color: #202020;
+}
+.addresses__addr  > div > p:nth-child(4) {
+    color: #626262;
+}
+.addresses__addr > div > button {
+    height: 39px !important;
+}
+.about__text > div {
+    border-radius: 100%;
+    width: 120px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.29);
+}
+.about__text > p {
+    line-height: 30px;
+}
+.text__about-large {
+    line-height: 35px;
+    font-size: 19px;
+    letter-spacing: 0.05em;
+}
+.controls button[data-state="play"] {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAA ... ');
+}
+
+.controls button[data-state="pause"] {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAA ... ');
+}
+.video-container {
+    display:table;
+    position:relative;
+    width:100%;
+}
+button.btn-play {
+    padding-left: 1.33%;
+}
+.btn-play:focus, .btn-pause:focus {
+    outline: none;
+}
+select {
+    border-radius: 0 !important;
+    border: none !important;
+    width: 207px !important;
+    height: 31px !important;
+    font-size: 12px !important;
+    appearance: none;
+    background: #FAFAFA url('../media/icon/select-custom-btn.svg') no-repeat right !important;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
+}
+select:focus, select:hover {
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05) !important;
+    border: none;
+}
+option {
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
+    font-size: 12px !important;
+    width: 207px;
+    height: 31px;
+}
+.video-container > button {
+    cursor: pointer;
+    width: 183px;
+    height: 183px;
+    border-color: rgba(0,0,0,0);
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.06);
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    margin:auto;
+    background-size:contain;
+    background-position: center;
+}
+.choice-of-type {
+    width: 960px;
+}
+.choice-of-type > button {
+    color: #424242;
+    cursor: pointer;
+    background-color: inherit;
+    border: none;
+}
+.choice-of-type-selected {
+    border-bottom: 1px solid #AB0A14 !important;
+    padding-right: 25px;
+}
+.list-services__service-item {
+    cursor: pointer;
+}
+.service-item__text {
+    height: 55px;
+    background-color: #F8F8F8;
+    width: 1010px;
+}
+.service-item-add-btn {
+    cursor: pointer;
+    width: 53px;
+    height: 53px;
+    background-color: #FBFBFB;
+    border: none;
+    border-radius: 50%;
+}
+.list-services__end > p > span {
+    color: #AB0A14;
+}
+.service-form {
+    height: 520px;
+    margin-top: 130px;
+    margin-bottom: 330px;
+    width: 920px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+}
+.service-form > label {
+    width: 602px;
+    height: 58px;
+    border: 1px solid #959595;
+}
+.service-form > label > img {
+    width: 25px;
+}
+.service-form > label > input {
+    border: none;
+    background-color: rgba(255,255,255,0);
+    padding-left: 10px;
+    width: 573.8px;
+    height: 58px;
+}
+button:active, button:focus {
+    outline: none;
+}
