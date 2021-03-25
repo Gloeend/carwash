@@ -33,7 +33,7 @@
 </div>
 <section class="container pb-5 pt-5">
         <div class="d-flex flex-row align-items-center">
-            <h4>Услуги</h4>
+            <h4>Марки</h4>
             <button class="ml-5 btn" id="open-add-form">Добавить</button>
         </div>
         <div id="marks-table-data">

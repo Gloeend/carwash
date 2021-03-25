@@ -1,5 +1,5 @@
 @extends('admin.layout')
-@section('title') Марки @endsection
+@section('title') Классы @endsection
 @section('content')
 @section('append-sources')
 <script type="text/javascript" src="../js/class.js"></script> @endsection
@@ -35,7 +35,7 @@
 </div>
 <section class="container pb-5 pt-5">
         <div class="d-flex flex-row align-items-center">
-            <h4>Услуги</h4>
+            <h4>Классы</h4>
         </div>
         <div id="classes-table-data"></div>
 </section>
