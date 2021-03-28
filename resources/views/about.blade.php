@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-@section('append-sources')<script type="text/javascript" src="js/script.js"></script>@endsection
+@section('append-sources')<script type="text/javascript" src="js/about.js"></script>@endsection
 
     <div class="video-container">
         <video id="header-about-video" data-index="1" src="media/video/header-about-video.mp4" class="w-100 d-block about-video-header" muted autoplay loop></video>

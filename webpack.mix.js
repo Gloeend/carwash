@@ -18,7 +18,7 @@ mix.styles(
     ],
     "public/css/app.css"
 );
-mix.js(["resources/js/script.js"], "public/js");
+mix.js(["resources/js/about.js"], "public/js");
 mix.js("resources/js/order.js", "public/js");
 mix.js("resources/js/login.js", "public/js");
 mix.js("resources/js/user.js", "public/js");
