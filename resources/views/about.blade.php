@@ -1,4 +1,5 @@
 @extends('layout')
+@section('title') О нас @endsection
 @section('content')
 @section('append-sources')<script type="text/javascript" src="js/about.js"></script>@endsection
 

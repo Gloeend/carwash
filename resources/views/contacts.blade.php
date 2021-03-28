@@ -1,5 +1,5 @@
 @extends('layout')
-
+@section('title') Контакты @endsection
 @section('content')
 
     <main class="contacts mb-5 pb-5">
