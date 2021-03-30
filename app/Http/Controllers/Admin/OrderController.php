@@ -9,7 +9,7 @@ use App\Models\Requests;
 class OrderController extends Controller
 {
     public function view()
-    { 
+    {
         return view('admin.order');
     }
 
@@ -18,15 +18,18 @@ class OrderController extends Controller
         $obRequests = $obRequests::where(['id' => $obRequest->id])->first();
         $obValidatedData = $obRequest->validate([
             'datetime' => 'date|required',
+            'status' => 'required',
         ], [
             'required' => 'Заполните :attribute',
             'date' => 'Введите дату',
             'min' => 'Минимальная длина :attribute :value символов',
         ], [
             'datetime' => 'Время',
+            'status' => 'Статус'
         ]);
         Requests::where(['id' => $obRequest->id])->update([
-            'coming_at' => $obRequest->datetime
+            'coming_at' => $obRequest->datetime,
+            'status' => $obRequest->status
         ]);
         return response()->json(['validationMessage' => 'success']);
     }
@@ -46,6 +49,11 @@ class OrderController extends Controller
             $obOrders = Requests::whereYear('coming_at', $arDate[0])
                 ->whereMonth('coming_at', $arDate[1])
                 ->whereDay('coming_at', $arDate[2])
+                ->orderBy('created_at')
+                ->orderBy('id', 'desc')
+                ->paginate(15);
+        } elseif ($obRequest->status !== null) {
+            $obOrders = Requests::where('status', $obRequest->status)
                 ->orderBy('created_at')
                 ->orderBy('id', 'desc')
                 ->paginate(15);

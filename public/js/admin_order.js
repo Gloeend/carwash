@@ -7,6 +7,7 @@ jQuery(document).ready(function () {
   var page = 1;
   var sort = "default";
   var day = null;
+  var status = null;
   fetch_data(page); // Ajax pagination next/before
 
   $(document).on("click", ".page-link", function (event) {
@@ -27,7 +28,8 @@ jQuery(document).ready(function () {
         _token: _token,
         page: page,
         sort_type: sort,
-        day: day
+        day: day,
+        status: status
       },
       success: function success(data) {
         $("#orders-table-data").html(data);
@@ -37,6 +39,7 @@ jQuery(document).ready(function () {
 
   $("#sort-form-submit").click(function () {
     day = $('input[name="datetime"]').val();
+    status = $('select[name="status"]').val();
     $("#order-form").modal("hide");
     fetch_data(page);
   });
@@ -44,16 +47,31 @@ jQuery(document).ready(function () {
     if ($(this).attr("data-sort") === "date") {
       $("#order-form").modal("show");
       $(".modal-title").text("Сортировать по дате");
+      $("#status-form-group-label").addClass("d-none");
+      $("#sort-form-submit").removeClass("d-none");
+      $("#order-update-form-submit").addClass("d-none");
+      $("#datetime-form-group-label").removeClass("d-none");
+      $("#form-error").addClass("d-none");
+      $(this).siblings().removeClass("btn-success");
+      $(this).addClass("btn-success");
+      return null;
+    } else if ($(this).attr("data-sort") === "status") {
+      $("#order-form").modal("show");
+      $(".modal-title").text("Сортировать по статусу");
+      $("#status-form-group-label").removeClass("d-none");
+      $("#datetime-form-group-label").addClass("d-none");
       $("#sort-form-submit").removeClass("d-none");
       $("#order-update-form-submit").addClass("d-none");
       $("#form-error").addClass("d-none");
       $(this).siblings().removeClass("btn-success");
       $(this).addClass("btn-success");
       return null;
+    } else if ($(this).attr("data-sort") === "default") {
+      status = null;
+      day = null;
     }
 
     sort = $(this).attr("data-sort");
-    day = null;
     $(this).siblings().removeClass("btn-success");
     $(this).addClass("btn-success");
     fetch_data(page);
@@ -64,8 +82,11 @@ jQuery(document).ready(function () {
     $(".modal-title").text("Изменить время записи");
     var id = $(this).attr("data-index");
     var datetime = $(this).parent().siblings('td[data-index="coming_at"]').text();
+    var status = $(this).parent().siblings('td[data-index="status"]').text();
     $("input[name='order-form-id']").val(id).change();
     $("#datetime").val(datetime.slice(0, -3).replace(" ", "T"));
+    $("#status-form-group-label").removeClass("d-none");
+    $("#status-input").val(status).change();
     $("#order-update-form-submit").removeClass("d-none");
     $("#sort-form-submit").addClass("d-none");
     $("#form-error").addClass("d-none");
@@ -73,6 +94,7 @@ jQuery(document).ready(function () {
 
   $(document).delegate("#order-update-form-submit", "click", function () {
     var datetime = $('input[name="datetime"]').val();
+    var status = $('select[name="status"]').val();
     var id = $('input[name="order-form-id"]').val();
     $.ajax({
       type: "POST",
@@ -80,6 +102,7 @@ jQuery(document).ready(function () {
       data: {
         _token: objConfig.sCsrf,
         datetime: datetime,
+        status: status,
         id: id
       },
       success: function success(response) {

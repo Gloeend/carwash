@@ -1,4 +1,4 @@
-@media (max-width: 1930px) {
+/* @media (max-width: 1930px) { */
     .pages__links > a {
         margin-left: 27px;
     }
@@ -40,4 +40,4 @@
     .addresses__addr:not(:first-child) {
         margin-top: 75px;
     }
-}
+/* } */

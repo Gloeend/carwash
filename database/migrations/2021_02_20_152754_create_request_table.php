@@ -20,6 +20,7 @@ class CreateRequestTable extends Migration
             $table->timestamp('coming_at')->nullable();
             $table->json('service');
             $table->text('fio');
+            $table->enum('status', array('В ожидании', 'Подтвержден', 'Отклонен', 'Выполнен'))->default('В ожидании');
             $table->unsignedBigInteger('id_mmc');
 
             $table->foreign('id_mmc')->references('id')->on('mmc')->onDelete('cascade');

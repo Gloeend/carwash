@@ -17,9 +17,18 @@
                     <div class="w-75 d-none alert alert-danger" role="alert" id="form-error">
                         <strong></strong>
                     </div>
-                    <div class="form-group w-75">
+                    <div class="form-group w-75" id="datetime-form-group-label"
                         <label for="datetime">Время</label>
                         <input type="datetime-local" id="datetime" name="datetime" class="form-control">
+                    </div>
+                    <div class="form-group w-75" id="status-form-group-label">
+                        <label for="datetime">Статус</label>
+                        <select name="status" id="status-input" class="form-control">
+                            <option value="В ожидании">В ожидании</option>
+                            <option value="Подтвержден">Подтвержден</option>
+                            <option value="Отклонен">Отклонен</option>
+                            <option value="Выполнен">Выполнен</option>
+                        </select>
                     </div>
                     <input type="hidden" name="order-form-id">
                 </form>
@@ -37,6 +46,7 @@
             <h4>Записи</h4>
             <div class="d-flex flex-row ml-3">
                 <button class="sort-button btn ml-2" data-sort="date">Сортировать по дате</button>
+                <button class="sort-button btn ml-2" data-sort="status">Сортировать по статусу</button>
                 <button class="sort-button btn ml-2" data-sort="with-time">Есть время</button>
                 <button class="sort-button btn ml-2" data-sort="without-time">Нету времени</button>
                 <button class="sort-button btn ml-2 btn-success" data-sort="default">Сбросить</button>

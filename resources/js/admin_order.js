@@ -2,6 +2,7 @@ jQuery(document).ready(() => {
     let page = 1;
     let sort = "default";
     let day = null;
+    let status = null;
     fetch_data(page);
     // Ajax pagination next/before
     $(document).on("click", ".page-link", function (event) {
@@ -17,10 +18,17 @@ jQuery(document).ready(() => {
     // Ajax fetch table orders
     function fetch_data(page) {
         var _token = objConfig.sCsrf;
+
         $.ajax({
             url: objConfig.objRoutes.sFetchOrder,
             method: "POST",
-            data: { _token: _token, page: page, sort_type: sort, day: day },
+            data: {
+                _token: _token,
+                page: page,
+                sort_type: sort,
+                day: day,
+                status: status,
+            },
             success: function (data) {
                 $("#orders-table-data").html(data);
             },
@@ -29,6 +37,7 @@ jQuery(document).ready(() => {
 
     $("#sort-form-submit").click(function () {
         day = $('input[name="datetime"]').val();
+        status = $('select[name="status"]').val();
         $("#order-form").modal("hide");
         fetch_data(page);
     });
@@ -36,15 +45,30 @@ jQuery(document).ready(() => {
         if ($(this).attr("data-sort") === "date") {
             $("#order-form").modal("show");
             $(".modal-title").text("Сортировать по дате");
+            $("#status-form-group-label").addClass("d-none");
+            $("#sort-form-submit").removeClass("d-none");
+            $("#order-update-form-submit").addClass("d-none");
+            $("#datetime-form-group-label").removeClass("d-none");
+            $("#form-error").addClass("d-none");
+            $(this).siblings().removeClass("btn-success");
+            $(this).addClass("btn-success");
+            return null;
+        } else if ($(this).attr("data-sort") === "status") {
+            $("#order-form").modal("show");
+            $(".modal-title").text("Сортировать по статусу");
+            $("#status-form-group-label").removeClass("d-none");
+            $("#datetime-form-group-label").addClass("d-none");
             $("#sort-form-submit").removeClass("d-none");
             $("#order-update-form-submit").addClass("d-none");
             $("#form-error").addClass("d-none");
             $(this).siblings().removeClass("btn-success");
             $(this).addClass("btn-success");
             return null;
+        } else if ($(this).attr("data-sort") === "default") {
+            status = null;
+            day = null;
         }
         sort = $(this).attr("data-sort");
-        day = null;
         $(this).siblings().removeClass("btn-success");
         $(this).addClass("btn-success");
         fetch_data(page);
@@ -59,8 +83,14 @@ jQuery(document).ready(() => {
             .parent()
             .siblings('td[data-index="coming_at"]')
             .text();
+        let status = $(this)
+            .parent()
+            .siblings('td[data-index="status"]')
+            .text();
         $("input[name='order-form-id']").val(id).change();
         $("#datetime").val(datetime.slice(0, -3).replace(" ", "T"));
+        $("#status-form-group-label").removeClass("d-none");
+        $("#status-input").val(status).change();
         $("#order-update-form-submit").removeClass("d-none");
         $("#sort-form-submit").addClass("d-none");
         $("#form-error").addClass("d-none");
@@ -69,6 +99,7 @@ jQuery(document).ready(() => {
 
     $(document).delegate("#order-update-form-submit", "click", function () {
         let datetime = $('input[name="datetime"]').val();
+        let status = $('select[name="status"]').val();
         let id = $('input[name="order-form-id"]').val();
         $.ajax({
             type: "POST",
@@ -76,6 +107,7 @@ jQuery(document).ready(() => {
             data: {
                 _token: objConfig.sCsrf,
                 datetime: datetime,
+                status: status,
                 id: id,
             },
             success: function (response) {

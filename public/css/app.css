@@ -278,7 +278,7 @@ button:active, button:focus {
     outline: none;
 }
 
-@media (max-width: 1930px) {
+/* @media (max-width: 1930px) { */
     .pages__links > a {
         margin-left: 27px;
     }
@@ -320,7 +320,8 @@ button:active, button:focus {
     .addresses__addr:not(:first-child) {
         margin-top: 75px;
     }
-}
+/* } */
+
 
 /* Через <head>  (Добавить <link rel="preconnect" href="https://fonts.gstatic.com"> )*/
     /* Montserrat */
