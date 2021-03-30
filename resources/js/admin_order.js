@@ -77,7 +77,7 @@ jQuery(document).ready(() => {
     // Open modal window with form update order model
     $(document).delegate(".open-update-form", "click", function () {
         $("#order-form").modal("show");
-        $(".modal-title").text("Изменить время записи");
+        $(".modal-title").text("Изменить запись");
         let id = $(this).attr("data-index");
         let datetime = $(this)
             .parent()

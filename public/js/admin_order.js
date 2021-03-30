@@ -79,7 +79,7 @@ jQuery(document).ready(function () {
 
   $(document).delegate(".open-update-form", "click", function () {
     $("#order-form").modal("show");
-    $(".modal-title").text("Изменить время записи");
+    $(".modal-title").text("Изменить запись");
     var id = $(this).attr("data-index");
     var datetime = $(this).parent().siblings('td[data-index="coming_at"]').text();
     var status = $(this).parent().siblings('td[data-index="status"]').text();
