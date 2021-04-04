@@ -24,7 +24,7 @@
             $sum = $obMmc->class()->first()->price;
         @endphp
         <td data-index="model" class="fz-12">{{$obMmc->model()->first()->title }} {{$obMmc->mark()->first()->title}}</td>
-        <td data-index="model" class="fz-12">{{$obOrder->fio}}</td>
+        <td data-index="model" class="fz-12">{{$obOrder->client()->first()->fio}}</td>
         <td data-index="class" class="fz-12">{{$obMmc->class()->first()->title}}</td>
         <td data-index="service">
             <p class="fz-12">
@@ -39,7 +39,7 @@
         </td>
         <td data-index="sum" class="fz-12">{{$sum}}₽</td>
         <td data-index="coming_at" class="fz-12">{{$obOrder->coming_at === null ? 'Нету' : $obOrder->coming_at}}</td>
-        <td data-index="phone" class="fz-12">{{$obOrder->phone}}</td>
+        <td data-index="phone" class="fz-12">{{$obOrder->client()->first()->phone}}</td>
         <td data-index="status" class="fz-12">{{$obOrder->status}}</td>
         <td class="fz-12">{{$obOrder->created_at}}</td>
         <td class="fz-12">{{ $obOrder->updated_at }}</td>

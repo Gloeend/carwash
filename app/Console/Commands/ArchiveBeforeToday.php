@@ -7,14 +7,14 @@ use Carbon\Carbon;
 use Illuminate\Console\Command;
 
 
-class DeleteBeforeToday extends Command
+class ArchiveBeforeToday extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'requestsDelete:start';
+    protected $signature = 'requestsArchive:start';
 
     /**
      * The console command description.

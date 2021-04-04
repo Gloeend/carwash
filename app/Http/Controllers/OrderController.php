@@ -8,9 +8,11 @@ use App\Models\Mmc;
 use App\Models\Models;
 use App\Models\Service;
 use App\Models\TypeService;
+use App\Models\Client;
 use App\Models\Requests;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Carbon\Carbon;
 
 class OrderController extends Controller
 {
@@ -44,8 +46,9 @@ class OrderController extends Controller
         return response()->json(['data' => Mmc::all()]);
     }
 
-    public function request(Request $obRequest)
+    public function request(Request $obRequest, Client $obClients)
     {
+        $obClient = new Client();
         $obValidatedData = $obRequest->validate([
             'id_mark' => 'required|exists:mark,id',
             'id_model' => 'required|numeric|exists:model,id',
@@ -65,20 +68,32 @@ class OrderController extends Controller
             'phone' => 'Номер телефона',
             'price' => 'Цена'
         ]);
+        $intMmc = Mmc::where([
+            'id_mark' => $obRequest->id_mark,
+            'id_model' => $obRequest->id_model,
+        ])->first()->id;
         for ($i = 0; $i < count($cart = $obRequest->cart); ++$i) {
             $cart[$i]['price'] =
                 ($temp = Service::where(['title' => $cart[$i]['title']])->first()->price) == $cart[$i]['price'] ?
                 $cart[$i]['price'] : $temp;
         }
+        if (($obClient = $obClients->where(['phone' => $obRequest->phone])->first()) === null) {
+            $obClient = $obClients->fill([
+                'fio' => $obRequest->fio,
+                'phone' => $obRequest->phone,
+            ]);
+            $obClient->save();
+        }
         (new Requests())->fill([
             'service' => json_encode($cart),
-            'id_mmc' => Mmc::where([
-                'id_mark' => $obRequest->id_mark,
-                'id_model' => $obRequest->id_model,
-            ])->first()->id,
-            'fio' => $obRequest->fio,
-            'phone' => $obRequest->phone,
+            'id_mmc' => $intMmc,
+            'id_client' => $obClient->id,
         ])->save();
         return response()->json(['validationMessage' => 'success']);
+    }
+
+    public function getRequestsOnDay()
+    {
+        return response()->json(['data' => Requests::whereDate('coming_at', Carbon::today())->get()]);
     }
 }

@@ -19,12 +19,12 @@ class CreateRequestTable extends Migration
 
             $table->timestamp('coming_at')->nullable();
             $table->json('service');
-            $table->text('fio');
             $table->enum('status', array('В ожидании', 'Подтвержден', 'Отклонен', 'Выполнен'))->default('В ожидании');
             $table->unsignedBigInteger('id_mmc');
+            $table->unsignedBigInteger('id_client');
 
             $table->foreign('id_mmc')->references('id')->on('mmc')->onDelete('cascade');
-            $table->char('phone');
+            $table->foreign('id_client')->references('id')->on('client')->onDelete('cascade');
         });
     }
 

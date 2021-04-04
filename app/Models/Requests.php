@@ -12,12 +12,17 @@ class Requests extends Model
     public $table = 'request';
     public $timestamps = true;
     public $fillable = [
-        'service', 'fio', 'id_map', 'id_mmc', 'phone'
+        'service',  'id_mmc', 'id_client'
     ];
 
 
     public function mmc()
     {
         return $this->belongsTo(Mmc::class, 'id_mmc');
+    }
+
+    public function client()
+    {
+        return $this->belongsTo(Client::class, 'id_client');
     }
 }
