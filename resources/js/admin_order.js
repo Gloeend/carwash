@@ -109,6 +109,7 @@ jQuery(document).ready(() => {
             .text();
         $("input[name='order-form-id']").val(id).change();
         $("#datetime").val(datetime.slice(0, -3).replace(" ", "T"));
+        $("#datetime-form-group-label").removeClass("d-none");
         $("#status-form-group-label").removeClass("d-none");
         $("#status-input").val(status).change();
         $("#order-update-form-submit").removeClass("d-none");

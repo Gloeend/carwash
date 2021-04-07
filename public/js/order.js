@@ -17274,7 +17274,7 @@ var OrderService = /*#__PURE__*/function () {
         title: $(el).children("div").children("p:first-child").text(),
         price: $(el).children("div").children("p:last-child").children("span").text()
       });
-      return true;
+      return this.cart;
     }
   }, {
     key: "removeCart",
@@ -17287,7 +17287,7 @@ var OrderService = /*#__PURE__*/function () {
         if (this.cart[i].title === sItem) return this.cart.splice(i, 1);
       }
 
-      return false;
+      return this.cart;
     }
   }, {
     key: "changePrice",
