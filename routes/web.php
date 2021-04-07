@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\TypeServiceController;
 use App\Http\Controllers\Admin\MarkController;
 use App\Http\Controllers\Admin\ClassController;
+use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\MmcController;
 
 use App\Models\Mark;
@@ -100,4 +101,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/admin/order/update', [OrderController::class, 'update'])->name('orders-update');
     Route::post('/admin/order/delete', [OrderController::class, 'delete'])->name('orders-delete');
     Route::post('/admin/order/fetch', [OrderController::class, 'fetch'])->name('orders-fetch');
+
+    Route::post('/admin/client/fetch', [ClientController::class, 'fetch'])->name('client-fetch');
 });

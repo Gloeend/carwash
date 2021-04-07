@@ -5,6 +5,7 @@ var __webpack_exports__ = {};
   \*************************************/
 jQuery(document).ready(function () {
   var page = 1;
+  var clientPage = 1;
   var sort = "default";
   var day = null;
   var status = null;
@@ -37,6 +38,24 @@ jQuery(document).ready(function () {
     });
   }
 
+  $(document).delegate(".open-client-modal", "click", function () {
+    $("#client-modal").modal("show");
+    console.log($(this).attr("data-index"));
+    var _token = objConfig.sCsrf;
+    var id = $(this).attr("data-index");
+    $.ajax({
+      url: objConfig.objRoutes.sFetchClient,
+      method: "POST",
+      data: {
+        _token: _token,
+        page: clientPage,
+        id: id
+      },
+      success: function success(data) {
+        $("#client-table-data").html(data);
+      }
+    });
+  });
   $("#sort-form-submit").click(function () {
     day = $('input[name="datetime"]').val();
     status = $('select[name="status"]').val();

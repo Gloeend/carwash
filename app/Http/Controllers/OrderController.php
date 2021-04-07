@@ -16,11 +16,6 @@ use Carbon\Carbon;
 
 class OrderController extends Controller
 {
-    public function getService()
-    {
-        return;
-    }
-
     public function render()
     {
         return view('order', [

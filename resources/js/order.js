@@ -44,7 +44,7 @@ class OrderService {
                 .children("span")
                 .text(),
         });
-        return true;
+        return this.cart;
     }
 
     removeCart(el) {
@@ -54,7 +54,7 @@ class OrderService {
         for (let i = 0; i < this.cart.length; ++i) {
             if (this.cart[i].title === sItem) return this.cart.splice(i, 1);
         }
-        return false;
+        return this.cart;
     }
 
     changePrice() {

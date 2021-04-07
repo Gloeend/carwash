@@ -52,8 +52,6 @@ class TypeServiceController extends Controller
             response()->json(['validationMessage' => 'success']) : response()->json(['validationMessage' => 'failure']);
     }
 
-    // Ajax fetch users table
-
     function fetch(Request $request)
     {
         if ($request->ajax()) {

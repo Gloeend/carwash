@@ -21,7 +21,7 @@ class ArchiveBeforeToday extends Command
      *
      * @var string
      */
-    protected $description = 'Delete all requests rows before today';
+    protected $description = 'Archive (change status) all requests rows before today';
 
     /**
      * Create a new command instance.
@@ -41,15 +41,10 @@ class ArchiveBeforeToday extends Command
     public function handle()
     {
         $this->info(Carbon::today()->toString());
-        $obModels = Requests::whereDate('coming_at',  '<', Carbon::today())->get();
+        $obModels = Requests::whereDate('coming_at',  '<', Carbon::today())->where(['status', ['not' => 'Выполнено']])->get();
         $intCount = $obModels->count();
         foreach ($obModels as $obModel) {
-            $this->info($obModel->coming_at);
-            Carbon::today();
-            $obModel->delete();
-        }
-        if ($intCount > 0) {
-            $this->info("Удалено {$intCount} записей.");
+            $obModel->archive();
         }
     }
 }

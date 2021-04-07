@@ -24,7 +24,7 @@ class CreateClassTable extends Migration
         $current_date_time = \Carbon\Carbon::now()->toDateTimeString();
         DB::table('class')->insert(
             array(
-                'title' => 'Класс A',
+                'title' => 'A',
                 'price' => 25,
                 'created_at' => $current_date_time,
                 'updated_at' => $current_date_time,

@@ -12,7 +12,7 @@ class Requests extends Model
     public $table = 'request';
     public $timestamps = true;
     public $fillable = [
-        'service',  'id_mmc', 'id_client'
+        'service',  'id_mmc', 'id_client', 'id_user'
     ];
 
 
@@ -24,5 +24,11 @@ class Requests extends Model
     public function client()
     {
         return $this->belongsTo(Client::class, 'id_client');
+    }
+
+    public function archive()
+    {
+        $this->status = 'Отклонен';
+        $this->save();
     }
 }

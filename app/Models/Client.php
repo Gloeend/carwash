@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use GuzzleHttp\Psr7\Request;
+use App\Models\Requests;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,9 +14,8 @@ class Client extends Model
         'phone', 'fio'
     ];
 
-
-    public function request()
+    public function requests()
     {
-        return $this->belongsTo(Request::class, 'id_client');
+        return $this->hasMany(Requests::class, 'id_client', 'id');
     }
 }

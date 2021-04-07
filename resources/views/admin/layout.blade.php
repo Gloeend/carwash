@@ -66,6 +66,8 @@
                 sDelOrder: " {{route('orders-delete')}} ",
                 sFetchOrder: " {{route('orders-fetch')}} ",
 
+                sFetchClient: " {{route('client-fetch')}} ",
+
             }
         }
     </script>

@@ -277,6 +277,9 @@ option {
 button:active, button:focus {
     outline: none;
 }
+.client-dialog {
+    max-width: 75%;
+}
 
 /* @media (max-width: 1930px) { */
     .pages__links > a {

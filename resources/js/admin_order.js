@@ -1,5 +1,6 @@
 jQuery(document).ready(() => {
     let page = 1;
+    let clientPage = 1;
     let sort = "default";
     let day = null;
     let status = null;
@@ -17,7 +18,7 @@ jQuery(document).ready(() => {
 
     // Ajax fetch table orders
     function fetch_data(page) {
-        var _token = objConfig.sCsrf;
+        let _token = objConfig.sCsrf;
 
         $.ajax({
             url: objConfig.objRoutes.sFetchOrder,
@@ -34,6 +35,25 @@ jQuery(document).ready(() => {
             },
         });
     }
+
+    $(document).delegate(".open-client-modal", "click", function () {
+        $("#client-modal").modal("show");
+        console.log($(this).attr("data-index"));
+        var _token = objConfig.sCsrf;
+        let id = $(this).attr("data-index");
+        $.ajax({
+            url: objConfig.objRoutes.sFetchClient,
+            method: "POST",
+            data: {
+                _token: _token,
+                page: clientPage,
+                id: id,
+            },
+            success: function (data) {
+                $("#client-table-data").html(data);
+            },
+        });
+    });
 
     $("#sort-form-submit").click(function () {
         day = $('input[name="datetime"]').val();

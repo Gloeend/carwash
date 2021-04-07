@@ -78,10 +78,9 @@
             </div>
             <div class="navigation__pages">
                 <nav class="pages__links d-flex flex-row justify-content-between">
+                    <a href="{{route('home')}}" class="fz-14 fw-semi-bold montserrat-text">ГЛАВНАЯ</a>
                     <a href="{{route('about')}}" class="fz-14 fw-semi-bold montserrat-text">О НАС</a>
                     <a href="{{route('service')}}" class="fz-14 fw-semi-bold montserrat-text">УСЛУГИ</a>
-                    <a href="#" class="fz-14 fw-semi-bold montserrat-text">ЦЕНЫ</a>
-                    <a href="#" class="fz-14 fw-semi-bold montserrat-text">ГАЛЕРЕЯ</a>
                     <a href="{{route('contacts')}}" class="fz-14 fw-semi-bold montserrat-text">КОНТАКТЫ</a>
                     <a href="{{route('order')}}" class="fz-14 fw-semi-bold montserrat-text">ЗАПИСАТЬСЯ</a>
                 </nav>

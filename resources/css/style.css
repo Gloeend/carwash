@@ -277,3 +277,6 @@ option {
 button:active, button:focus {
     outline: none;
 }
+.client-dialog {
+    max-width: 75%;
+}

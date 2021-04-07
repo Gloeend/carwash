@@ -4,6 +4,35 @@
 @section('append-sources')
 <script type="text/javascript" src="../js/admin_order.js"></script> @endsection
 
+<div id="client-modal" class="modal fade ">
+    <div class="modal-dialog client-dialog">
+        <div class="modal-content">
+            <!-- Заголовок модального окна -->
+            <div class="modal-header d-flex flex-row align-items-center justify-content-center">
+                <p>Записи клиента</p>
+            </div>
+            <!-- Основное содержимое модального окна -->
+            <div class="modal-body">
+                <table class="table mt-5">
+                    <thead>
+                    <tr>
+                        <th>Автомобиль</th>
+                        <th>Класс</th>
+                        <th>Услуги</th>
+                        <th>Сумма</th>
+                        <th>Время</th>
+                        <th>Статус</th>
+                        <th>Создан</th>
+                        <th>Изменен</th>
+                    </tr>
+                    </thead>
+                    <tbody id="client-table-data" class="fz-14">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 <div id="order-form" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">

@@ -39,9 +39,13 @@
         </td>
         <td data-index="sum" class="fz-12">{{$sum}}₽</td>
         <td data-index="coming_at" class="fz-12">{{$obOrder->coming_at === null ? 'Нету' : $obOrder->coming_at}}</td>
-        <td data-index="phone" class="fz-12">{{$obOrder->client()->first()->phone}}</td>
+        <td data-index="phone" class="fz-12">
+            <button class="btn btn-link fz-12 open-client-modal" data-index="{{$obOrder->client()->first()->id}}">
+                {{$obOrder->client()->first()->phone}}
+            </button>
+        </td>
         <td data-index="status" class="fz-12">{{$obOrder->status}}</td>
-        <td class="fz-12">{{$obOrder->created_at}}</td>
+        <td class="fz-12">{{$obOrder->created_at}}</td> 
         <td class="fz-12">{{ $obOrder->updated_at }}</td>
         <td class="d-flex flex-row">
             <button class="btn open-update-form" data-index="{{$obOrder->id}}">Изменить</button>

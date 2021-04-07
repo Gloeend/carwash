@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -15,6 +16,7 @@ class OrderController extends Controller
 
     public function update(Request $obRequest, Requests $obRequests)
     {
+        $user = null;
         $obRequests = $obRequests::where(['id' => $obRequest->id])->first();
         $obValidatedData = $obRequest->validate([
             'datetime' => 'date|required',
@@ -27,9 +29,13 @@ class OrderController extends Controller
             'datetime' => 'Время',
             'status' => 'Статус'
         ]);
-        Requests::where(['id' => $obRequest->id])->update([
+        if ($obRequests->id_user === null) {
+            $user = Auth::user()->id;
+        }
+        $obRequests->update([
             'coming_at' => $obRequest->datetime,
-            'status' => $obRequest->status
+            'status' => $obRequest->status,
+            'id_user' => $user,
         ]);
         return response()->json(['validationMessage' => 'success']);
     }
